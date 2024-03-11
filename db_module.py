@@ -44,6 +44,13 @@ def getRecords(database,wclause):
         print(row)
         conn.close()   
         
+def delRecord():
+    #write a function that accepts contactid and removes the corresponding record from the data table
+    
+def updateRec():
+    #write a function that accepts a contactid and a list holding one or more dictionaries of field names and 
+    #corresponding values that need to be updated in the data table
+        
 database={'dbname':'info.db','tblname':'contacts'}
 fieldlist = [{'name':'contactid','dtype':'int','modify':'primary key'},{'name':'last','dtype':'varchar(30)','modify':''},
            {'name':'first','dtype':'varchar(20)','modify':''},{'name':'address','dtype':'varchar(50)','modify':''},
