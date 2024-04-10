@@ -45,26 +45,32 @@ def getRecords(database,wclause):
         conn.close()   
         
 def delRecord():
+    pass
     #write a function that accepts contactid and removes the corresponding record from the data table
     
 def updateRec():
+    pass
     #write a function that accepts a contactid and a list holding one or more dictionaries of field names and 
     #corresponding values that need to be updated in the data table
-        
-database={'dbname':'info.db','tblname':'contacts'}
-fieldlist = [{'name':'contactid','dtype':'int','modify':'primary key'},{'name':'last','dtype':'varchar(30)','modify':''},
-           {'name':'first','dtype':'varchar(20)','modify':''},{'name':'address','dtype':'varchar(50)','modify':''},
-           {'name':'city','dtype':'varchar(20)','modify':''},{'name':'state','dtype':'char(2)','modify':''},{'name':'postalcode','dtype':'varchar(15)','modify':''}]
-create_table(database,fieldlist)
-fields = ['contactid','last','first','address','city','state','postalcode']
-fieldata = [1,'Washington','George','3200 Mount Vernon Memorial Highway','Mt. Vernon','VA','22121']
-insertRow(database,fields,fieldata)
-fieldata = [2,'Lincoln','Abraham','123 Main ST','Springfield','MO','65803']
-insertRow(database,fields,fieldata)
-fieldata = [3,'Monroe','James','2050 James Monroe Pkwy','Charlottesville','VA','22902']
-insertRow(database,fields,fieldata)
-whereclause = ""
-getRecords(database,whereclause)
-print("-"*25)
-whereclause = "Where state = 'MO'"
-getRecords(database,whereclause)
+
+def main():
+    database={'dbname':'info.db','tblname':'contacts'}  # database description using name:value pairs
+    fieldlist = [{'name':'contactid','dtype':'int','modify':'primary key'},{'name':'last','dtype':'varchar(30)','modify':''},
+            {'name':'first','dtype':'varchar(20)','modify':''},{'name':'address','dtype':'varchar(50)','modify':''},
+            {'name':'city','dtype':'varchar(20)','modify':''},{'name':'state','dtype':'char(2)','modify':''},{'name':'postalcode','dtype':'varchar(15)','modify':''}]
+    # Field list description for the contacts table using name:value pairs
+    create_table(database,fieldlist)  # call to the create_table method sending database, field descriptions via dictionaries
+    fields = ['contactid','last','first','address','city','state','postalcode']  # List of contact table fields
+    fieldata = [1,'Washington','George','3200 Mount Vernon Memorial Highway','Mt. Vernon','VA','22121'] # Data for one row to add to contact table 
+    insertRow(database,fields,fieldata)  # call to the insertRow method sending database, field list and data for new record (row)
+    fieldata = [2,'Lincoln','Abraham','123 Main ST','Springfield','MO','65803']  # Data for one row to add to contact table 
+    insertRow(database,fields,fieldata) # call to the insertRow method sending database, field list and data for new record (row)
+    fieldata = [3,'Monroe','James','2050 James Monroe Pkwy','Charlottesville','VA','22902']  # Data for one row to add to contact table 
+    insertRow(database,fields,fieldata) # call to the insertRow method sending database, field list and data for new record (row)
+    whereclause = ""  #Initialize the 'where' (condition) clause variable
+    getRecords(database,whereclause) # call to the getRecords method sending the database name and a 'where' (condition) clause
+    print("-"*25)  # Print a dashed dividing line
+    whereclause = "Where state = 'MO'" # Setting the 'where' (condition) clause variable to only find contacts in Missouri
+    getRecords(database,whereclause) # call to the getRecords method sending the database name and a 'where' (condition) clause
+
+main()
