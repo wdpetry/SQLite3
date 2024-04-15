@@ -16,7 +16,7 @@
 		"vscode": {
 			"settings": {},
 			"extensions": [
-				"streetsidesoftware.code-spell-checker","qwtel.sqlite-viewer"
+				"qwtel.sqlite-viewer"
 			]
 		}
 	},
